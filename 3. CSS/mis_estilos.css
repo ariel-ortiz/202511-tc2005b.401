@@ -1,0 +1,32 @@
+/*
+  Hoja de estilos.
+  Autor: Ariel Ortiz
+*/
+
+body {
+  font-family: sans-serif;
+  color: DarkSeaGreen;
+  background-color: AntiqueWhite;
+  margin: 50px;
+}
+
+h1 {
+  color: DimGray;
+}
+
+h2 {
+  color: White;
+  background-color: Black;
+  padding: 20px;
+  border: dashed 15px MediumPurple;
+  margin: 30px;
+}
+
+.chida {
+  color: Yellow;
+  background-color: Navy;
+}
+
+#maria {
+  color: orange;
+}
