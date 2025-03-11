@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pow 2</title>
+  </head>
+  <body>
+    <h1>Pow 2</h1>
+    <ol type="i"><% for (const valor of arreglo_resultante) { %>
+      <li><%= valor %></li><% } %>
+    </ol>
+    <% if (enanos.length % 2 === 1) { %>
+      <h2>Lista de enanos</h2>
+      <ul>
+        <% for (const enano of enanos) { %>
+          <li><%= enano %></li>
+        <% } %>
+      </ul>
+    <% } %>
+  </body>
+</html>
