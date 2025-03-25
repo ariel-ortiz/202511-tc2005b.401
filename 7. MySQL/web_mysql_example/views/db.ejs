@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>The Quotations Database</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <h1>The Quotations Database</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Author</th>
+        <th>Excerpt</th>
+      </tr>
+      <% for (const row of rows) { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><%= row.author %></td>
+          <td><%= row.excerpt %></td>
+        </tr>
+      <% } %>
+    </table>
+  </body>
+</html>

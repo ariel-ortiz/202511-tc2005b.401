@@ -1,0 +1,38 @@
+body {
+  font-family: sans-serif;
+  margin: 50px;
+  background-color: lavender;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 10px;
+}
+
+th {
+  background-color: darkmagenta;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: lightgray;
+  color: black;
+}
+
+tr:nth-child(odd) {
+  background-color: gray;
+  color: white;
+}
+
+tr:hover {
+  background-color: gold;
+  color: black;
+  cursor: pointer;
+}
