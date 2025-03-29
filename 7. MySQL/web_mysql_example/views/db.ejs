@@ -1,25 +1,35 @@
 <!DOCTYPE html>
+<!-- Layout and styling by Gemini, an AI. -->
+<%# Layout and styling by Gemini, an AI. %>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <title>The Quotations Database</title>
-    <link rel="stylesheet" href="/css/styles.css">
-  </head>
-  <body>
-    <h1>The Quotations Database</h1>
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>Author</th>
-        <th>Excerpt</th>
-      </tr>
-      <% for (const row of rows) { %>
-        <tr>
-          <td><%= row.id %></td>
-          <td><%= row.author %></td>
-          <td><%= row.excerpt %></td>
+<head>
+  <meta charset='utf-8'>
+  <title>The Quotations Database</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="/css/mis_estilos.css">
+</head>
+<body>
+  <div class="w3-container">
+    <h1 class="w3-center w3-xxlarge w3-text-blue">The Quotations Database</h1>
+
+    <table class="w3-table-all w3-bordered w3-striped w3-hoverable centered-table">
+      <thead>
+        <tr class="w3-blue">
+          <th class="w3-center">ID</th>
+          <th class="w3-center">Author</th>
+          <th class="w3-center">Excerpt</th>
         </tr>
-      <% } %>
+      </thead>
+      <tbody>
+        <% for (const row of rows) { %>
+          <tr>
+            <td class="w3-right-align"><%= row.id %></td>
+            <td class="w3-left-align"><%= row.author %></td>
+            <td class="w3-left-align"><%= row.excerpt %></td>
+          </tr>
+        <% } %>
+      </tbody>
     </table>
-  </body>
+  </div>
+</body>
 </html>
