@@ -7,16 +7,21 @@ const ipAddress = process.env.C9_HOSTNAME ?? 'localhost';
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+
+async function connectDb() {
+  return await mysql.createConnection({
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: 'web_database'
+  });
+}
 
 app.get('/db', async (req, res) => {
   let connection;
   try {
-    connection = await mysql.createConnection({
-      host: process.env.MYSQL_HOST,
-      user: process.env.MYSQL_USER,
-      password: process.env.MYSQL_PASSWORD,
-      database: 'web_database'
-    });
+    connection = await connectDb();
 
     const [rows] = await connection.execute('select * from quotations');
     res.render('db', { rows });
@@ -31,8 +36,26 @@ app.get('/db', async (req, res) => {
   }
 });
 
-app.post('/process_form', (req, res) => {
-  res.send('¡Ya hice el post!');
+app.post('/process_form', async (req, res) => {
+  let { author, excerpt } = req.body;
+  author = author.trim() || 'Unknown';
+  excerpt = excerpt.trim() || 'No information';
+  let connection;
+  try {
+    connection = await connectDb();
+    await connection.execute(
+      'insert into quotations (author, excerpt) value (?, ?)',
+      [author, excerpt]
+    );
+    res.redirect('/db');
+
+  } catch (err) {
+
+  } finally {
+    if (connection) {
+      await connection.end();
+    }
+  }
 });
 
 // Página de recurso no encontrado (estatus 404)

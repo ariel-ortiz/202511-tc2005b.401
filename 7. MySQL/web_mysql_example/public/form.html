@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Ejemplo Form</title>
-  </head>
-  <body>
-    <h1>Ejemplo Form</h1>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .centered-form {
+            max-width: 800px;
+            margin: auto; /* Centers the form horizontally */
+        }
+    </style>
+</head>
+<body class="w3-container">
 
-    <form method="POST" action="/process_form">
+    <h1 class="w3-center">Ejemplo Form</h1>
 
-      <p>
-        <label for="id_author">Author:</label>
-        <br>
-        <input id="id_author">
-      </p>
+    <form method="POST" action="/process_form" class="w3-card-4 w3-padding centered-form">
 
-      <p>
-        <label for="id_excerpt">Excerpt:</label>
-        <br>
-        <textarea id="id_excerpt">Un texto...</textarea>
-      </p>
+        <p>
+            <label for="id_author" class="w3-text-blue">Author:</label><br>
+            <input name="author" required id="id_author" class="w3-input w3-border">
+        </p>
 
-      <p>
-        <input type="submit" value="Púshale">
-      </p>
+        <p>
+            <label for="id_excerpt" class="w3-text-blue">Excerpt:</label><br>
+            <textarea name="excerpt" required id="id_excerpt" class="w3-input w3-border">Un texto...</textarea>
+        </p>
+
+        <p>
+            <input type="submit" value="Púshale" class="w3-button w3-blue">
+        </p>
 
     </form>
 
-  </body>
+</body>
 </html>
